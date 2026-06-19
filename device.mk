@@ -19,15 +19,13 @@ LOCAL_PATH := device/motorola/rtwo
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# fastbootd
-PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock \
-    fastbootd
+# fastbootd is intentionally disabled until it is validated on-device. The
+# original tree documents a broken fastbootd flow that can leave rtwo unable to
+# boot normally without reflashing recovery.
 
-# qcom decryption
+# Recovery HALs used by battery reporting and FBE credential services.
 PRODUCT_PACKAGES += \
-    qcom_decrypt \
-    qcom_decrypt_fbe
+    android.hardware.health-service.qti_recovery
 
 # Dependencies
 TARGET_RECOVERY_DEVICE_MODULES += \

@@ -25,12 +25,9 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import /init.recovery.qcom_decrypt.rc
-
 on init
     # to cut charging battery path
     write /sys/class/power_supply/battery/siop_level 0
-    setprop prepdecrypt.setpatch true
     setprop sys.usb.configfs 1
 
 on fs
@@ -45,7 +42,7 @@ on fs
     # Mount bootdevice
 
 on boot
-    start health-hal-2-1
+    start vendor.health-recovery
 
 on property:crypto.ready=1
     start keymint-default
