@@ -19,6 +19,19 @@ LOCAL_PATH := device/motorola/rtwo
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# A/B support
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    init_boot \
+    recovery \
+    super \
+    system_dlkm \
+    vendor_boot \
+    vendor_dlkm \
+    vbmeta \
+    vbmeta_system
+
 # fastbootd is intentionally disabled until it is validated on-device. The
 # original tree documents a broken fastbootd flow that can leave rtwo unable to
 # boot normally without reflashing recovery.

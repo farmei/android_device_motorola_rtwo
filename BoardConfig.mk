@@ -112,7 +112,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 # Properties
 TARGET_VENDOR_PROP += device/motorola/rtwo/vendor.prop
 
-AB_OTA_UPDATER := false
+AB_OTA_UPDATER := true
 
 # Android Verified Boot
 BOARD_AVB_ENABLE := true
@@ -123,8 +123,7 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
 
-# Crypto is disabled for the boot-validation build. The previous FBE path
-# blocks the UI on the OrangeFox splash before usable logs are written.
+# Crypto is disabled until dynamic partition mounting is fully validated.
 PLATFORM_SECURITY_PATCH := 2029-12-31
 VENDOR_SECURITY_PATCH := 2029-12-31
 PLATFORM_VERSION := 12.1.0
