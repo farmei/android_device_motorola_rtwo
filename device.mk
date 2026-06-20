@@ -38,7 +38,9 @@ AB_OTA_PARTITIONS += \
 
 # Recovery HALs used by battery reporting and FBE credential services.
 PRODUCT_PACKAGES += \
-    android.hardware.health-service.qti_recovery
+    android.hardware.health-service.qti_recovery \
+    qcom_decrypt \
+    qcom_decrypt_fbe
 
 # Dependencies
 TARGET_RECOVERY_DEVICE_MODULES += \

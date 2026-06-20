@@ -41,8 +41,8 @@ on fs
     mount vfat /dev/block/bootdevice/by-name/apnhlos /vendor/firmware_mnt
 
     export ANDROID_ROOT /system_root
+    start qseecomd
     start keymint-default
-    start keymaster-sb-4-0
     # Mount bootdevice
 
 on boot
@@ -51,12 +51,12 @@ on boot
     start health-hal-2-1
 
 on property:crypto.ready=1
+    start qseecomd
     start keymint-default
-    start keymaster-sb-4-0
 
 on property:crypto.ready=0
-    stop keymaster-sb-4-0
     stop keymint-default
+    stop qseecomd
 
 on property:twrp.user.0.decrypt=0
     umount /vendor/firmware_mnt
